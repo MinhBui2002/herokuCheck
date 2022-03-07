@@ -18,7 +18,7 @@ async function updateProduct(collectionName, myquery, newvalues) {
     await dbo.collection(collectionName).updateOne(myquery, newvalues)
 }
 
-async function getProductbyId(collectionName, id) {
+async function getProductById(collectionName, id) {
 	let client = await MongoClient.connect(url);
 	let dbo = client.db(dbName);
 	return await dbo.collection(collectionName).findOne({ _id: ObjectId(id) });
@@ -36,4 +36,4 @@ async function getCollection(collectionName) {
 	return await dbo.collection(collectionName).find({}).toArray();
 }
 
-module.exports = { insertObject, getCollection, getProductbyId, updateProduct,deleteDocumentById};
+module.exports = { insertObject, getCollection, getProductById, updateProduct,deleteDocumentById};
