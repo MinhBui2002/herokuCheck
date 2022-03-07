@@ -83,7 +83,7 @@ app.post('/insert', async (req, res) => {
 	};
 	const collectionName = 'Products';
 	await insertObject(collectionName, newP);
-	res.render('create');
+	res.render('all');
 });
 const port = process.env.PORT || 5000
 app.listen(port);
