@@ -24,11 +24,12 @@ async function getProductById(collectionName, id) {
 	return await dbo.collection(collectionName).findOne({ _id: ObjectId(id) });
 }
 
-async function insertObject(dbName, collectionName, product) {
-	let client = await MongoClient.connect(url);
-	let dbo = client.db(dbName);
-	await dbo.collection(collectionName).insertOne(product);
+async function insertObject(collectionName, newP) {
+    let client = await MongoClient.connect(url)
+    let dbo = client.db(dbName) //GCH0904_DB: ten database
+    await dbo.collection(collectionName).insertOne(newP)
 }
+
 
 async function getCollection(collectionName) {
 	let client = await MongoClient.connect(url);
