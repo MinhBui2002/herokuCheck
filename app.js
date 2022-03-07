@@ -15,11 +15,11 @@ app.use(express.urlencoded({ extended: true }));
 const path = require("path");
 
 app.get("/", (req, res) => {
-	res.render("create");
+	res.render("all.hbs");
 });
 
 app.get("/insert", (req, res) => {
-	res.render("create");
+	res.render("create.hbs");
 });
 
 app.post("/edit", async (req, res) => {
