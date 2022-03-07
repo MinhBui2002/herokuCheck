@@ -6,7 +6,7 @@ const dbName = 'NoSQLBoosterSamples'
 
 async function deleteDocumentById(collectionName,id){
     let client = await MongoClient.connect(url)
-    let dbo = client.db(databaseName) //GCH0904_DB: ten database
+    let dbo = client.db(dbName) //GCH0904_DB: ten database
     await dbo.collection(collectionName).deleteOne({_id: ObjectId(id)})
 }
 
