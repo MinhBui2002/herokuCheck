@@ -53,7 +53,7 @@ app.get("/delete", async (req, res) => {
 app.get("/all", async (req, res) => {
 	const collectionName = "Products";
 	const result = await getAllFromCollection(collectionName);
-	res.render("all", { products: result });
+	res.render("all.hbs", { products: result });
 });
 
 app.get("/edit", async (req, res) => {
@@ -61,7 +61,7 @@ app.get("/edit", async (req, res) => {
 	const collectionName = "Products";
 	const document = await getDocumentById(collectionName, id);
 	console.log(document);
-	res.render("edit", { product: document });
+	res.render("edit.hbs", { product: document });
 });
 
 app.get("/view", async (req, res) => {
@@ -69,7 +69,7 @@ app.get("/view", async (req, res) => {
 	const collectionName = "Products";
 	const document = await getDocumentById(collectionName, id);
 	console.log(document);
-	res.render("find", { product: document });
+	res.render("find.hbs", { product: document });
 });
 
 app.post("/insert", async (req, res) => {
@@ -85,7 +85,7 @@ app.post("/insert", async (req, res) => {
 	};
 	const collectionName = "Products";
 	await insertObject(collectionName, newP);
-	res.render("create");
+	res.render("create.hbs");
 });
 const port = process.env.PORT || 5000
 app.listen(port);
