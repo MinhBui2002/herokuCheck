@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 const path = require('path');
 
 app.get('/', (req, res) => {
-	res.render('all');
+	res.redirect('/all');
 });
 
 app.get('/insert', (req, res) => {
@@ -83,7 +83,7 @@ app.post('/insert', async (req, res) => {
 	};
 	const collectionName = 'Products';
 	await insertObject(collectionName, newP);
-	res.render('all');
+	res.redirect('/all');
 });
 const port = process.env.PORT || 5000
 app.listen(port);
