@@ -70,6 +70,7 @@
             <div class="col py-3">
                 <p class="fs-1 bold text-center">Update product</p>
                 <form action="/edit" method="post" class="row g-3">
+                    <input type="hidden" name="txtId" value="{{product._id}}">
                     <div class="col-md-6">
                         <label class="form-label">Product name</label>
                         <input value="{{{product.name}}}" type="text" name="txtName" class="form-control">
