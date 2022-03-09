@@ -35,6 +35,14 @@ async function getCollection(collectionName) {
 	return await dbo.collection(collectionName).find({}).toArray();
 }
 
+// async function findUserByName(userName){
+//     let client = await MongoClient.connect(url)
+//     let dbo = client.db(databaseName) //GCH0904_DB: ten database
+//     const collectionName = "users"
+//     const result = await dbo.collection(collectionName).findOne({'name':userName})
+//     return result
+// }
+
 module.exports = {
 	insertObject,
 	getCollection,

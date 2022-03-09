@@ -74,16 +74,17 @@
                 <p class="fs-1 bold text-center">Table of products</p>
                 <table class="table table-primary table-bordered">
                     <tr class="table-primary">
-                        <th>ID</th>
+                        
                         <th>Product name</th>
                         <th>Product price</th>
                         <th>Product description</th>
                         <th>Product image</th>
                         <th>Actions</th>
+                        <th>Error</th>
                     </tr>
                     {{#each products}}
                     <tr class="table-primary">
-                        <td>{{{_id}}}</td>
+                        
                         <td>{{{name}}}</td>
                         <td>{{{price}}}</td>
                         <td>{{{description}}}</td>
@@ -92,6 +93,7 @@
                         <td><a class="btn btn-danger" style="margin-right: 20px;" href="/delete?id={{_id}}"
                                 onclick="return confirm('Are you sure?')">Delete</a><a class="btn  btn-warning"
                                 href="/edit?id={{_id}}">Update</a></td>
+                        <td>{{{errorName}}}</td>        
 
                     </tr>
                     {{/each}}

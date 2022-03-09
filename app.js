@@ -29,7 +29,7 @@ app.post('/edit', async (req, res) => {
 	const picUrl = req.body.txtPicUrl;
 	const des = req.body.txtDescription;
 
-	const newvalues = {
+	const newValues = {
 		$set: {
 			name: name,
 			price: price,
@@ -39,13 +39,19 @@ app.post('/edit', async (req, res) => {
 	};
 	const myQuery = { _id: ObjectId(updateId) };
 	const collectionName = 'Products';
-	await updateProduct(collectionName, myQuery, newvalues);
+	await updateProduct(collectionName, myQuery, newValues);
 	res.redirect('/all');
 });
 
 app.get('/delete', async (req, res) => {
 	const id = req.query.id;
 	const collectionName = 'Products';
+	const document = await getProductById(collectionName, id);
+	if(document.product.price < 50){
+		const errorName = "Can't delete price below 50"
+		res.render('all',{'errorName':errorName})	
+		return
+	}
 	await deleteDocumentById(collectionName, id);
 	res.redirect('/all');
 });
@@ -88,3 +94,9 @@ app.post('/insert', async (req, res) => {
 const port = process.env.PORT || 5000
 app.listen(port);
 console.log("<<<<<<< Server is running at 5000 >>>>>>");
+
+// if(name.length < 5){
+// 	const errorName = "Name Length must >= 5 characters"
+// 	res.render('register',{'name': name, 'errorName':errorName})
+// 	return
+// }
