@@ -30,24 +30,21 @@
                             </a>
                         </li>
 
-                        <li>
+                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-speedometer2"></i> <span
                                     class="ms-1 d-none d-sm-inline">Product</span> </a>
                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="/all" class="nav-link px-0"> <span class="d-none d-sm-inline">All
-                                            products</span>
+                                    <a href="/all" class="nav-link px-0"> <span class="d-none d-sm-inline">Alzl products</span> 
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/insert" class="nav-link px-0"> <span class="d-none d-sm-inline">Create new
-                                            product</span>
+                                    <a href="/insert" class="nav-link px-0"> <span class="d-none d-sm-inline">Create new product</span> 
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
 
                     </ul>
                     <hr>
@@ -71,33 +68,7 @@
                 </div>
             </div>
             <div class="col py-3">
-                <p class="fs-1 bold text-center">Table of products</p>
-                <table class="table table-primary table-bordered">
-                    <tr class="table-primary">
-                        
-                        <th>Product name</th>
-                        <th>Product price</th>
-                        <th>Product description</th>
-                        <th>Product image</th>
-                        <th>Actions</th>
-                        
-                    </tr>
-                    {{#each products}}
-                    <tr class="table-primary">
-                        
-                        <td>{{{name}}}</td>
-                        <td>{{{price}}}</td>
-                        <td>{{{description}}}</td>
-                        <td><a 
-                                href="/view?id={{_id}}"><img src="{{pic}}" width='150' height='100'></a></td>
-                        <td><a class="btn btn-danger" style="margin-right: 20px;" href="/delete?id={{_id}}"
-                                onclick="return confirm('Are you sure?')">Delete</a><a class="btn  btn-warning"
-                                href="/edit?id={{_id}}">Update</a></td>
-                                
-
-                    </tr>
-                    {{/each}}
-
+                <h1 style="color: Red; text-align:center">{{{errorName}}}</>
 
             </div>
         </div>

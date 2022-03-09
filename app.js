@@ -47,9 +47,9 @@ app.get('/delete', async (req, res) => {
 	const id = req.query.id;
 	const collectionName = 'Products';
 	const document = await getProductById(collectionName, id);
-	if(document.product.price < 50){
-		const errorName = "Can't delete price below 50"
-		res.render('all',{'errorName':errorName})	
+	if(document.price < 50){
+		const errorName = "Can't delete price below 50. Please go back"
+		res.render('error',{'errorName':errorName})	
 		return
 	}
 	await deleteDocumentById(collectionName, id);
